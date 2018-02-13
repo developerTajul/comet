@@ -14,6 +14,8 @@ function comet_theme_setup(){
 		'audio'
 	));
 
+	add_theme_support('post-thumbnails');
+
 }
 
 
@@ -39,6 +41,13 @@ function get_comet_fonts(){
 }
 
 
+
+/**
+*
+* comet theme css, js and conditional js files
+*
+*
+*/
 add_action('wp_enqueue_scripts', 'comet_theme_all_files');
 
 function comet_theme_all_files(){
@@ -68,7 +77,28 @@ function comet_theme_all_files(){
 	wp_enqueue_script('comet-', get_template_directory_uri().'/assets/js/main.js', array('jquery'), '3.0.3', true);
 
 	
+	/**
+	*
+	* conditional js files
+	*
+	*/
+	wp_enqueue_script('comet-html5shim', 'http://html5shim.googlecode.com/svn/trunk/html5.js');
+	wp_script_add_data('comet-html5shim', 'conditional', 'lt IE 9');
 
+
+	wp_enqueue_script('comet-respond', 'https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js');
+	wp_script_add_data('comet-respond', 'conditional', 'lt IE 9');
 
 
 }
+
+
+/**
+*
+* CMB2 Metabox
+*
+*/
+require_once('libs/cmb2/custom-cmb2.php');
+
+
+
