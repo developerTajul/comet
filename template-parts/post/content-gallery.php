@@ -9,9 +9,16 @@
   <div class="post-media">
     <div data-options="{&quot;animation&quot;: &quot;slide&quot;, &quot;controlNav&quot;: true" class="flexslider nav-outside">
       <ul class="slides">
-        <li><img src="<?php echo get_template_directory_uri(); ?>/assets/images/blog/1.jpg" alt=""></li>
-        <li><img src="<?php echo get_template_directory_uri(); ?>/assets/images/blog/2.jpg" alt=""></li>
-        <li><img src="<?php echo get_template_directory_uri(); ?>/assets/images/blog/3.jpg" alt=""></li>
+      <?php 
+        $images = get_post_meta(get_the_id(), 'gallery_images', true);
+
+        foreach($images as $image){ ?>
+<li><img src="<?php echo $image; ?>" alt=""></li>
+        <?php }  ?>
+
+        
+
+       
       </ul>
     </div>
   </div>
