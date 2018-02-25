@@ -11,12 +11,13 @@
       <ul class="slides">
       <?php 
         $images = get_post_meta(get_the_id(), 'gallery_images', true);
+       
+        if( is_array($images) ):
+        foreach($images as $image): ?>
+			<li><img src="<?php echo $image; ?>" alt=""></li>
+        <?php endforeach; endif; ?>
 
-        foreach($images as $image){ ?>
-<li><img src="<?php echo $image; ?>" alt=""></li>
-        <?php }  ?>
-
-        
+      
 
        
       </ul>

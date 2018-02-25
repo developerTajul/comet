@@ -61,7 +61,35 @@ if( file_exists( dirname(__FILE__).'/inc/theme_all_files.php' ) ){
 * CMB2 Metabox
 *
 */
-require_once('libs/cmb2/custom-cmb2.php');
+
+if( file_exists( dirname(__FILE__).'/libs/cmb2/custom-cmb2.php') ){
+
+	require_once( dirname(__FILE__).'/libs/cmb2/custom-cmb2.php');
+	
+}
+
+
+
+/**
+*
+* Redux Framework
+*
+*/
+
+// framework file
+if( file_exists( dirname(__FILE__).'/libs/redux/ReduxCore/framework.php') ){
+
+	require_once( dirname(__FILE__).'/libs/redux/ReduxCore/framework.php');
+
+}
+
+// barebones-config file
+if( file_exists( dirname(__FILE__).'/libs/redux/sample/barebones-config.php') ){
+
+	require_once( dirname(__FILE__).'/libs/redux/sample/barebones-config.php');
+
+}
+
 
 
 
